@@ -1,0 +1,36 @@
+.footer {
+  width: 100%;
+}
+
+.upperContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lowerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  text-align: right;
+}
+
+.link {
+  color: rgb(19, 19, 19);
+  font-family: "Noto sans display";
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: yellow;
+  cursor: pointer;
+}
+.footer_footer__1v8zI {
+  background-color: antiquewhite;
+}
