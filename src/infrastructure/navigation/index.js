@@ -27,156 +27,156 @@ import { Four04Page } from "../../components/404/404page.screen";
 import { PaginatedList } from "../../features/mod-dashboard/screens/paginated-list/PaginatedList.screen";
 
 export const Navigation = () => {
-  const {
-    userType,
-    user,
-    isAuthenticated,
-    isAuthenticatedMod,
-    messageThreads,
-  } = useContext(AuthenticationContext);
+	const {
+		userType,
+		user,
+		isAuthenticated,
+		isAuthenticatedMod,
+		messageThreads,
+	} = useContext(AuthenticationContext);
 
-  return (
-    <Router>
-      {userType && <Navbar />}
-      {/* need to add some extra checks here */}
-      {isAuthenticated && user && user.isAccountExec && (
-        <OnboardingModalScreen />
-      )}
-      <Switch>
-        <Route path="/search">
-          <SearchScreen />
-        </Route>
-        <Route path="/login">
-          {!isAuthenticated ? <LoginScreen /> : <Profile />}
-        </Route>
-        <Route path="/forgot-password">
-          <ForgotPasswordScreen />
-        </Route>
-        <Route path="/reset-password">
-          <ResetPasswordScreen />
-        </Route>
-        <Route path="/login-as-moderator">
-          {isAuthenticatedMod ? <ModDashboardScreen /> : <ModLoginScreen />}
-        </Route>
-        <Route path="/register">
-          {!isAuthenticated ? <RegisterScreen /> : <Profile />}
-        </Route>
-        <Route path="/profile">
-          {isAuthenticated && user ? <Profile /> : <LoginScreen />}
-        </Route>
-        <Route path="/accountsettings">
-          {isAuthenticated && user ? <AccountSettings /> : <LoginScreen />}
-        </Route>
-        <Route path="/eventrequests">
-          {isAuthenticated && user ? <EventRequestsScreen /> : <LoginScreen />}
-        </Route>
-        <Route path="/results">
-          <SearchScreen />
-        </Route>
-        <Route path="/user">
-          <OtherUserProfile />
-        </Route>
-        <Route path="/event">
-          <EventViewScreen />
-        </Route>
-        <Route path="/contact">
-          <ContactUs />
-        </Route>
-        <Route path="/termsandconditions">
-          <TermsAndConditionsScreen />
-        </Route>
-        <Route path="/account-exec-dashboard">
-          {isAuthenticated && user && user.isAccountExec ? (
-            <AccountExecutiveDashboard />
-          ) : (
-            <Four04Page />
-          )}
-        </Route>
-        <Route path="/allmessages">
-          {isAuthenticated && user && messageThreads ? (
-            <AllMessageThreadsScreen />
-          ) : null}
-        </Route>
-        <Route path="/message">
-          {isAuthenticated && user ? <MessageThread /> : null}
-        </Route>
-        <Route path="/moddashboard/new-users">
-          {isAuthenticatedMod ? (
-            <PaginatedList documentType={"new_users"} />
-          ) : (
-            <Four04Page />
-          )}
-        </Route>
-        <Route path="/moddashboard/newly-updated-users">
-          {isAuthenticatedMod ? (
-            <PaginatedList documentType={"newly_updated_users"} />
-          ) : (
-            <Four04Page />
-          )}
-        </Route>
-        <Route path="/moddashboard/suspended-users">
-          {isAuthenticatedMod ? (
-            <PaginatedList documentType={"suspended_users"} />
-          ) : (
-            <Four04Page />
-          )}
-        </Route>
-        <Route path="/moddashboard/reported-users">
-          {isAuthenticatedMod ? (
-            <PaginatedList documentType={"reported_users"} />
-          ) : (
-            <Four04Page />
-          )}
-        </Route>
-        <Route path="/moddashboard/events">
-          {isAuthenticatedMod ? (
-            <PaginatedList documentType={"events"} />
-          ) : (
-            <Four04Page />
-          )}
-        </Route>
-        <Route path="/moddashboard/account-executives">
-          {isAuthenticatedMod ? (
-            <PaginatedList documentType={"account_executives"} />
-          ) : (
-            <Four04Page />
-          )}
-        </Route>
-        <Route path="/moddashboard/moderators">
-          {isAuthenticatedMod ? (
-            <PaginatedList documentType={"moderators"} />
-          ) : (
-            <Four04Page />
-          )}
-        </Route>
-        <Route path="/moddashboard/all-reports">
-          {isAuthenticatedMod ? (
-            <PaginatedList documentType={"all_reports"} />
-          ) : (
-            <Four04Page />
-          )}
-        </Route>
-        <Route path="/moddashboard/unresolved-reports">
-          {isAuthenticatedMod ? (
-            <PaginatedList documentType={"unresolved_reports"} />
-          ) : (
-            <Four04Page />
-          )}
-        </Route>
-        <Route path="/moddashboard/resolved-reports">
-          {isAuthenticatedMod ? (
-            <PaginatedList documentType={"resolved_reports"} />
-          ) : (
-            <Four04Page />
-          )}
-        </Route>
-        <Route path="/moddashboard">
-          {isAuthenticatedMod ? <ModDashboardScreen /> : <ModLoginScreen />}
-        </Route>
-        <Route path="/">
-          {userType ? <HomeScreen /> : <UserTypeOptions />}
-        </Route>
-      </Switch>
-    </Router>
-  );
+	return (
+		<Router>
+			{userType && <Navbar />}
+			{/* need to add some extra checks here */}
+			{isAuthenticated && user && user.isAccountExec && (
+				<OnboardingModalScreen />
+			)}
+			<Switch>
+				<Route path="/search">
+					<SearchScreen />
+				</Route>
+				<Route path="/login">
+					{!isAuthenticated ? <LoginScreen /> : <Profile />}
+				</Route>
+				<Route path="/forgot-password">
+					<ForgotPasswordScreen />
+				</Route>
+				<Route path="/reset-password">
+					<ResetPasswordScreen />
+				</Route>
+				<Route path="/login-as-moderator">
+					{isAuthenticatedMod ? <ModDashboardScreen /> : <ModLoginScreen />}
+				</Route>
+				<Route path="/register">
+					{!isAuthenticated ? <RegisterScreen /> : <Profile />}
+				</Route>
+				<Route path="/profile">
+					{isAuthenticated && user ? <Profile /> : <LoginScreen />}
+				</Route>
+				<Route path="/accountsettings">
+					{isAuthenticated && user ? <AccountSettings /> : <LoginScreen />}
+				</Route>
+				<Route path="/eventrequests">
+					{isAuthenticated && user ? <EventRequestsScreen /> : <LoginScreen />}
+				</Route>
+				<Route path="/results">
+					<SearchScreen />
+				</Route>
+				<Route path="/user">
+					<OtherUserProfile />
+				</Route>
+				<Route path="/event">
+					<EventViewScreen />
+				</Route>
+				<Route path="/contact">
+					<ContactUs />
+				</Route>
+				<Route path="/termsandconditions">
+					<TermsAndConditionsScreen />
+				</Route>
+				<Route path="/account-exec-dashboard">
+					{isAuthenticated && user && user.isAccountExec ? (
+						<AccountExecutiveDashboard />
+					) : (
+						<Four04Page />
+					)}
+				</Route>
+				<Route path="/allmessages">
+					{isAuthenticated && user && messageThreads ? (
+						<AllMessageThreadsScreen />
+					) : null}
+				</Route>
+				<Route path="/message">
+					{isAuthenticated && user ? <MessageThread /> : null}
+				</Route>
+				<Route path="/moddashboard/new-users">
+					{isAuthenticatedMod ? (
+						<PaginatedList documentType={"new_users"} />
+					) : (
+						<Four04Page />
+					)}
+				</Route>
+				<Route path="/moddashboard/newly-updated-users">
+					{isAuthenticatedMod ? (
+						<PaginatedList documentType={"newly_updated_users"} />
+					) : (
+						<Four04Page />
+					)}
+				</Route>
+				<Route path="/moddashboard/suspended-users">
+					{isAuthenticatedMod ? (
+						<PaginatedList documentType={"suspended_users"} />
+					) : (
+						<Four04Page />
+					)}
+				</Route>
+				<Route path="/moddashboard/reported-users">
+					{isAuthenticatedMod ? (
+						<PaginatedList documentType={"reported_users"} />
+					) : (
+						<Four04Page />
+					)}
+				</Route>
+				<Route path="/moddashboard/events">
+					{isAuthenticatedMod ? (
+						<PaginatedList documentType={"events"} />
+					) : (
+						<Four04Page />
+					)}
+				</Route>
+				<Route path="/moddashboard/account-executives">
+					{isAuthenticatedMod ? (
+						<PaginatedList documentType={"account_executives"} />
+					) : (
+						<Four04Page />
+					)}
+				</Route>
+				<Route path="/moddashboard/moderators">
+					{isAuthenticatedMod ? (
+						<PaginatedList documentType={"moderators"} />
+					) : (
+						<Four04Page />
+					)}
+				</Route>
+				<Route path="/moddashboard/all-reports">
+					{isAuthenticatedMod ? (
+						<PaginatedList documentType={"all_reports"} />
+					) : (
+						<Four04Page />
+					)}
+				</Route>
+				<Route path="/moddashboard/unresolved-reports">
+					{isAuthenticatedMod ? (
+						<PaginatedList documentType={"unresolved_reports"} />
+					) : (
+						<Four04Page />
+					)}
+				</Route>
+				<Route path="/moddashboard/resolved-reports">
+					{isAuthenticatedMod ? (
+						<PaginatedList documentType={"resolved_reports"} />
+					) : (
+						<Four04Page />
+					)}
+				</Route>
+				<Route path="/moddashboard">
+					{isAuthenticatedMod ? <ModDashboardScreen /> : <ModLoginScreen />}
+				</Route>
+				<Route path="/">
+					{userType ? <HomeScreen /> : <UserTypeOptions />}
+				</Route>
+			</Switch>
+		</Router>
+	);
 };
